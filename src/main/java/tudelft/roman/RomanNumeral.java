@@ -19,11 +19,16 @@ public class RomanNumeral {
     }
 
     public int convert(String s) {
+        for(int i = 0; i < s.length(); i++) {
+            if ("IVXLCDM".indexOf(s.charAt(i)) == -1)
+                throw new IllegalArgumentException("Illegal Character in string: "+s.charAt(i));
+        }
 
         int convertedNumber = 0;
-        for(int i = 0; i < s.length(); i++) {
-            int currentNumber = map.get(s.charAt(i));
-            int next = i+1 < s.length() ? map.get(s.charAt(i+1)) : 0;
+        for(int j = 0; j < s.length(); j++) {
+            int currentNumber = map.get(s.charAt(j));
+
+            int next = j+1 < s.length() ? map.get(s.charAt(j+1)) : 0;
 
             if(currentNumber >= next)
                 convertedNumber += currentNumber;

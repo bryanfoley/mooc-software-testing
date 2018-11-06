@@ -36,4 +36,11 @@ public class RomanNumeralTestWithBeforeEach {
         int result = roman.convert("XLIV");
         Assertions.assertEquals(44, result);
     }
+
+    @Test
+    public void syntacticallyCorrect() {
+        RomanNumeral roman = new RomanNumeral();
+        int result = roman.convert("CCXLVI");
+        Assertions.assertEquals(246, result);
+    }
 }
